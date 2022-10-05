@@ -6,24 +6,17 @@
     font-family: "Poppins";
 }
 
-h1, p {
-    background-color: transparent;
-}
-
 .container {
     display: flex;
     align-items: center;
     background-color: #e2d8b7;
-    min-height: 75px;
+    justify-content: center;
+    width: 100%;
 }
 
 .text {
+    padding: 10px;
     background-color: transparent;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
 }
 
 input[type=text]:focus {
@@ -36,7 +29,6 @@ input[type=text] {
     text-align: center;
     font-size: 1.5em;
     width: 50px;
-    height: 50px;
     background-color: red;
     border: 2px solid black;
     border-radius: 1500px;
@@ -46,6 +38,15 @@ input[type=text] {
     background-position: center center;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.poster {
+    display: flex;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
 }
 
 /*
