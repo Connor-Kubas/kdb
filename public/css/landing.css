@@ -44,6 +44,8 @@ input[type=text] {
     background-size: 20px 20px;
     background-repeat: no-repeat;
     background-position: center center;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /*
