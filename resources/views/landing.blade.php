@@ -7,19 +7,26 @@
         <!-- Google fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 
+        <link rel="icon" href="{{ url('images/favicon.ico') }}">
+
         <link href="{{ url('css/landing.css')}}" rel="stylesheet">
 
-        <title>Kubas DB</title>
+        <title>KDB</title>
 
     </head>
     <body>
         <div class="container">
             <div class="text">
-                <h1>Welcome to Kubas DB</h1>
+                {{-- <h1>Welcome to Kubas DB</h1> --}}
 
-                <p>We are better than Kino</p>
+                <form action="/view" style="background-color: transparent;">
+                    @csrf
+                    <input name="search" id="search" type="text" style="background-color: transparent;" onclick='grow()'>
+                </form>
             </div>    
         </div>
 
     </body>
 </html>
+
+<script src="{{ url('js/search.js') }}"></script>

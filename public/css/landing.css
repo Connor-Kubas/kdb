@@ -13,8 +13,8 @@ h1, p {
 .container {
     display: flex;
     align-items: center;
-    background-color: #e4d6a7;
-    min-height: 150px;
+    background-color: #e2d8b7;
+    min-height: 75px;
 }
 
 .text {
@@ -24,6 +24,26 @@ h1, p {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+input[type=text]:focus {
+    /* background-color: red; */
+    outline: none;
+    /* border:2px solid white; */
+}
+
+input[type=text] {
+    text-align: center;
+    font-size: 1.5em;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border: 2px solid black;
+    border-radius: 1500px;
+    background-image: url('../images/glass.png');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 /*
