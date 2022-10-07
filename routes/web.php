@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\AddMovieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,6 @@ Route::get('/', function () {
 
 Route::get('/view', [SearchController::class, 'index']);
     
+Route::get('/add', [AddMovieController::class, 'index']);
+
+Route::get('/add/{title, year}', [AddMovieController::class, 'create']);

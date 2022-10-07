@@ -9,11 +9,11 @@ class SearchController extends Controller
 {
     public function index(Request $request)
     {
-        $search = $request->input('search');
-        $search = strtolower($search);
-        $search = str_replace(' ', '_', $search);
-        $search .= '.jpg';
+        $movie = $request->input('search');
+        $movie = strtolower($movie);
+        $movie = str_replace(' ', '_', $movie);
+        $movie .= '.jpg';
 
-        return view('movie-view', compact('search'));
+        return view('movie-view', compact('movie'));
     }
 }
