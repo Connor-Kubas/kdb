@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Movie;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class AddMovieController extends Controller
 {
@@ -19,12 +21,24 @@ class AddMovieController extends Controller
      * Adds the movie to the database.
      */
     public function create(Request $request)
-    {
-        $movie = $request->input('search');
-        $movie = strtolower($search);
-        $movie = str_replace(' ', '_', $search);
-        $movie .= '.jpg';
+    {   
+        // Updates database
+        $movie = new Movie;
+        $movie->title = $request->title;
+        $movie->title = strtolower($movie->title);
+        $movie->title = str_replace(' ', '_', $movie->title);
+        $movie->year_of_release = $request->year;
+        $movie->save();
 
-        return view('movie-view', compact('movie'));
+        // Upload image to public/storage/posters
+        $request->file('upload')->storeAs('public/posters', $movie->id . '.jpg');
+
+        // Format tiel for display
+        $title = $request->title;
+        $title = strtolower($title);
+        $title = str_replace(' ', '_', $title);
+        $title .= '.jpg';
+
+        return view('/landing', compact('title'));
     }
 }

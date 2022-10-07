@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Movie;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -9,11 +10,18 @@ class SearchController extends Controller
 {
     public function index(Request $request)
     {
-        $movie = $request->input('search');
-        $movie = strtolower($movie);
-        $movie = str_replace(' ', '_', $movie);
-        $movie .= '.jpg';
+        $title = $request->title;
+        $title = strtolower($title);
+        $title = str_replace(' ', '_', $title);
 
-        return view('movie-view', compact('movie'));
+        if (isset(Movie::where('title', $title)->get()->first()->id)) {
+            $movie_id = Movie::where('title', $title)->get()->first()->id;
+        } else {
+            return redirect()->back();
+        }
+
+        $movie_id .= '.jpg';
+
+        return view('movie-view', compact('movie_id'));
     }
 }

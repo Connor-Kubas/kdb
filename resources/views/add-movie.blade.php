@@ -2,21 +2,26 @@
 
 @section('content')
 
-    <form action="/add/{title, year}">
+    <form action="/add/create" method="post" enctype="multipart/form-data" autocomplete="off">
         @csrf
         <div class="box-container">
         <div class="box">
-            <h1>Add a Film to the Database</h1>
-            <div class="inputs">
+            
+            <div class="box-items">
 
-                <input name="title" type="text" style="background-color: white;">
+                <h1 class="transparent">Add a Film to the Database</h1>
 
-                <select name="year" style="background-color: white;">
+                <input class="transparent text-add" name="title" type="text" placeholder="Title">
+
+                <select class="transparent dropdown-add" name="year">
                     @for ($i = date('Y'); $i >= 1900; $i--) 
-                        <option style="background-color: white;" value="{{ $i }}">{{ $i }}</option>
+                        <option class="transparent" value="{{ $i }}">{{ $i }}</option>
                     @endfor
 
+                <input class="transparent option-add" type="file" name="upload">
 
+                <input class="transparent submit-add" type="submit" value="Add Movie">
+            
             </div>
         </div>
         </div>

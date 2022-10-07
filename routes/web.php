@@ -23,4 +23,4 @@ Route::get('/view', [SearchController::class, 'index']);
     
 Route::get('/add', [AddMovieController::class, 'index']);
 
-Route::get('/add/{title, year}', [AddMovieController::class, 'create']);
+Route::post('/add/create', [AddMovieController::class, 'create']);

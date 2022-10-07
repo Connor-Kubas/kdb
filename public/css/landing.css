@@ -40,6 +40,10 @@ input[type=text].search {
 
 .poster {
     display: flex;
+    border: 15px solid black;
+    border-radius: 15px;
+    margin-left: 250px;
+    margin-top: 75px;
 }
 
 body {
@@ -57,7 +61,7 @@ body {
 }
 
 .box {
-    background-color: white;
+    background-color: #e2d8b7;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,12 +73,63 @@ body {
     border-radius: 15px;
 }
 
-.box h1 {
+.box-items {
+    background-color: #e2d8b7;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    /* align-content: space-between; */
+}
+
+.transparent {
     background-color: transparent;
 }
 
-input[type=text].inputs {
-    background-color: red;
+.text-add {
+    text-align: center;
+    font-size: 1.5em;
+    height: 40px;
+    width: 80%;
+    display: flex;
+    margin-left: 10%;
+    border: 3px solid black;
+    border-radius: 15px;
+}
+
+.dropdown-add {
+    text-align: center;
+    font-size: 1.5em;
+    height: 40px;
+    width: 80%;
+    display: flex;
+    margin-left: 10%;
+    border: 3px solid black;
+    border-radius: 15px;
+}
+
+.option-add {
+    text-align: center;
+    font-size: 1em;
+    height: 40px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    margin-left: 10%;
+    border: 3px solid black;
+    border-radius: 15px;
+}
+
+.submit-add {
+    text-align: center;
+    font-size: 1.5em;
+    height: 40px;
+    width: 80%;
+    display: flex;
+    margin-left: 10%;
+    border: 3px solid black;
+    border-radius: 15px;
 }
 
 /*
