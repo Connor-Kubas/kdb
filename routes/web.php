@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AddMovieController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,18 @@ use App\Http\Controllers\RatingController;
 */
 
 Route::get('/', function () {
-    return view('landing');
+    return view('login');
 });
+
+Route::get('/landing', function () {
+    return view('landing');
+})->name('landing');
+
+Route::post('/signup', [LoginController::class, 'signUp']);
+
+Route::post('/login', [LoginController::class, 'login']);
+
+Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/view', [SearchController::class, 'index']);
     

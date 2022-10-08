@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Models\Rating;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+
 
 class RatingController extends Controller
 {
@@ -16,12 +18,12 @@ class RatingController extends Controller
     {
         $movie_id = $request->movie_id;
         $value = $request->rating;
-        $user = User::where('id', 1)->get()->first(); // todo this used id should not be hard coded
+        $user = Auth::user();
         $hasRating = $user->ratings()->where('movie_id', $movie_id)->get()->first()->rating ?? null;
         
         if (isset($hasRating)) {
             // If they have a rating, update it.
-            $this->update();
+            $this->update($user, $value, $movie_id);
         } else {
             // If they don't have a rating create a new one.
             $this->create($user, $value, $movie_id);
@@ -45,8 +47,10 @@ class RatingController extends Controller
     /**
      * Update the user's rating.
      */
-    public function update($user, $rating)
+    public function update($user, $value, $movie_id)
     {
-
+        $rating = Rating::where('movie_id', $movie_id)->first();
+        $rating->rating = $value;
+        $rating->save();
     }
 }

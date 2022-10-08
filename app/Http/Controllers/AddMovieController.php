@@ -28,6 +28,7 @@ class AddMovieController extends Controller
         $movie->title = strtolower($movie->title);
         $movie->title = str_replace(' ', '_', $movie->title);
         $movie->year_of_release = $request->year;
+        $movie_id = $movie->id;
         $movie->save();
 
         // Upload image to public/storage/posters
@@ -39,6 +40,6 @@ class AddMovieController extends Controller
         $title = str_replace(' ', '_', $title);
         $title .= '.jpg';
 
-        return view('/landing', compact('title'));
+        return redirect()->action([SearchController::class, 'index']);
     }
 }
