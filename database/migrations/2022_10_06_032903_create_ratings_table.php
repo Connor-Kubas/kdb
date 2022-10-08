@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('movie_id')->constrained('movies');
-            $table->integer('rating');
+            $table->decimal('rating', 8, 6);
             $table->timestamps();
         });
     }
