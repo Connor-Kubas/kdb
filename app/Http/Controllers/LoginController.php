@@ -10,25 +10,14 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
     public function login(Request $request)
-    {
-        // dd($request);
-        // $credentials = $request->validate([
-        //     'name' => ['required'],
-        //     'password' => ['required'],
-        // ]);
-        // dd($credentials);
-        
+    {   
         $user = User::where('name', $request->name)->get()->first();
 
-        // dd(Hash::check($request->password, $user->password));
         if (Auth::attempt(['name' => $request->name, 'password' => $request->password])) {
             $request->session()->regenerate();
-
-            // dd('success');
             return view('landing');
         }
 
-        // dd("fail");
         return back();
     }
 

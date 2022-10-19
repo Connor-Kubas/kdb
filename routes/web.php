@@ -29,7 +29,7 @@ Route::post('/signup', [LoginController::class, 'signUp']);
 
 Route::post('/login', [LoginController::class, 'login']);
 
-Route::post('/logout', [LoginController::class, 'logout']);
+Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/view', [SearchController::class, 'index']);
     
